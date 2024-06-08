@@ -1,0 +1,65 @@
+Maven command to run a file; mvn test -P<profilename>   ex: mvn test -PRegression
+java -jar jenkins.war -httpPort=8080
+
+//how to schedule jenkins job
+*****
+1 star: Minutes (0-59)
+2 star: Hours (0-23)
+3 star: Day in a Month (1-31)
+4 star: Month in a year(1-12)
+5 star: DayWeek (0-7) 0 and 7 are sunday
+
+Selenium Framework interview questions:
+1. What is the design pattern you haveused in writing the tests in the framework
+ans=> We used page object model and also used page factory pattern to create locators and objects
+We used annotations like FindBy for locators 
+
+2) how are reusable utilities handled within the framework?
+ans=> used resuable methods for page objects and one for test classes and introduced inheritance
+
+3) where did you use inheritance oops concept in your framework?
+for reusuable methods
+
+4) How do you drive the data from external files in the framework?
+ans=> we used json files to parse the data
+there is a concept in testng called data provider. it also accepts hashmap as an object to send data.
+I created one json file, I wrote one utility which converts my json to hashmap, 
+once it is converted I'm passing hashmap object to data provider.
+There is a dependency called jackson data bind that converts string to hasmap
+
+5) Did you use interfaces in the framework? If so, what is the scope of it?
+ans=> We are using interface listners . because it provides methods 
+Webdriver itself in an interfac. adn we also used testng interfaces
+
+6) How are you acheiving encapsulation in the framework?
+ans=> by marking fields as private in classes and action methods public.
+ 
+7)does your framework support parallel runs? How are you writing Thread safe code?
+ans=> in xml file, the attribute parallel is set to tests which makes the tests run parallely. Each test starts 
+in it's own thread.
+But might face issue with reporting. We solved that problem using ThreadLocal class where it stores thread information as ID.
+and we store them using set method and retrieve them using get method
+
+8) Do you have static keywords in the framework? if so, its usage?
+static variables use common space allocation for threads. So it might cause discrpency while running parallely
+we can use it for texts
+
+9)How are you sending Global Properties to your test at run time?
+We created java properties file and reading it with properties class. It has the ability to read .peroperty files
+We can also drive from maven commands 
+
+10)What is the mechanism to run only selected set of tests inside the framework?
+ans-> by testng groups concept and create an xml file and tell run tests onky those tests
+We can also create seperate profile in Pom.xml
+
+11) How are you handling flaky tests in framework?
+ans=> by using IRetryAnalyzer interface
+
+
+12)Does your framework take screenshot on test failures? how did you implement it?
+ans=> by using testng listners interface. When test fails, we can catch it adn take ss and attach it to report
+
+13)Explain framework architecture?
+ans-> open seleniumFrameworkArchitecure png from laptop
+
+
