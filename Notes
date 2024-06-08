@@ -62,4 +62,6 @@ ans=> by using testng listners interface. When test fails, we can catch it adn t
 13)Explain framework architecture?
 ans-> open seleniumFrameworkArchitecure png from laptop
 
+//adding new text to check git integration
+
 
